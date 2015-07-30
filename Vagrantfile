@@ -3,18 +3,18 @@
 
 Vagrant.configure(2) do |config|
 
-  config.vm.box = "hashicorp/trusty32"
+  config.vm.box = "ubuntu/trusty32"
 
   config.vm.provider "virtualbox" do |vb|
     vb.memory = "1024"
   end
 
   config.vm.provision :shell, path: "bootstrap.sh"
-  config.vm.synced_folder "./training_data", "/root/char-rnn/data"
+  config.vm.synced_folder "./training_data", "/home/vagrant/char-rnn/data"
 
 
   $script = <<SCRIPT
-cd /root/char-rnn
+cd ~/char-rnn
 echo "Type \"th train.lua -data_dir data/some_folder -gpuid -1\" to train"
 echo "Type \"th sample.lua cv/some_checkpoint.t7 -gpuid -1\" to sample"
 SCRIPT
