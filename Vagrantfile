@@ -10,7 +10,8 @@ Vagrant.configure(2) do |config|
   end
 
   config.vm.provision :shell, path: "bootstrap.sh"
-  config.vm.synced_folder "./training_data", "/home/vagrant/char-rnn/data"
+  config.vm.synced_folder "./training_data", "/vagrant/char-rnn/data"
+  config.vm.synced_folder "./training_checkpoints", "/vagrant/char-rnn/cv"
 
 
   $script = <<SCRIPT
