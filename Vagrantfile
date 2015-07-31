@@ -15,7 +15,7 @@ Vagrant.configure(2) do |config|
 
 
   $script = <<SCRIPT
-cd ~/char-rnn
+echo "cd into the char-rnn directory"
 echo "Type \"th train.lua -data_dir data/some_folder -gpuid -1\" to train"
 echo "Type \"th sample.lua cv/some_checkpoint.t7 -gpuid -1\" to sample"
 SCRIPT

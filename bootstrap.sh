@@ -10,7 +10,11 @@ source ~/.bashrc
 source ~/torch/install/bin/torch-activate
 luarocks install nngraph
 luarocks install optim
+chmod 755 -R /root
 
-cd
-git clone https://github.com/karpathy/char-rnn.git
-cd ~/char-rnn
+cd /home/vagrant
+git clone https://github.com/karpathy/char-rnn.git ch
+cp -R ch/* char-rnn/
+rm -rf ch
+chown -R vagrant char-rnn
+echo "source /root/torch/install/bin/torch-activate" >> /home/vagrant/.bashrc
